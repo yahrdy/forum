@@ -19,7 +19,7 @@
                 {{ $discussion->title }}
             </h5>
             <hr>
-            {{ $discussion->content }}
+            {!!  Markdown::convertToHtml($discussion->content) !!}
             <hr>
             @if($best_answer)
                 <h3>Best answer</h3>

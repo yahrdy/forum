@@ -35,7 +35,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-
+                    <li class="">
+                        <a href="/forum?filter=me" style="text-decoration: none">My discussions</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -82,6 +84,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Ask a question</a>
+                    @if(Auth::check())
+                        @if(Auth::user()->admin)
+                            <div class="card">
+                                <div class="card-body">
+                                    <a href="{{ route('channels.index') }}">All Channels</a>
+                                </div>
+                            </div>
+                        @endif
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             Channels
